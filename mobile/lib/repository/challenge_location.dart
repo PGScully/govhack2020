@@ -1,3 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'challenge_location.g.dart';
+
+@JsonSerializable()
 class ChallengeLocation {
   int id;
   String title;
@@ -16,4 +21,8 @@ class ChallengeLocation {
     this.imageUrl = '',
     this.thumbnailUrl = '',
   });
+
+  factory ChallengeLocation.fromJson(Map<String, dynamic> json) =>
+      _$ChallengeLocationFromJson(json);
+  Map<String, dynamic> toJson() => _$ChallengeLocationToJson(this);
 }
