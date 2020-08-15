@@ -1,16 +1,12 @@
-# twp
+# Mobile App
 
-A new Flutter project.
+Flutter mobile app for The Winning Project, primarily targeting Android.  iOS and web clients may or may not be tested and completed, depending on time.
 
-## Getting Started
+## Screens
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Splash: Shows a quick overview, and links to other screens.
+- Login: Allows the user to create an account, and login
+- Offers: Shows the nearby offers available to the user.
+- Near Me: Shows the nearby attractions, either as a list, or on a graph.
+- Progress: Shows the user's progress towards offers.
+- Redeem: Shows where the user can redeem offers.
