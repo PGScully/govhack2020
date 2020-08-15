@@ -9,6 +9,7 @@ part of 'rest_client.dart';
 class _RestClient implements RestClient {
   _RestClient(this._dio, {this.baseUrl}) {
     ArgumentError.checkNotNull(_dio, '_dio');
+    this.baseUrl ??= 'https://govhack.topdogcommerce.com/';
   }
 
   final Dio _dio;
@@ -92,5 +93,23 @@ class _RestClient implements RestClient {
             ChallengeLocation.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
+  }
+
+  @override
+  checkin(userid, locationid) async {
+    ArgumentError.checkNotNull(userid, 'userid');
+    ArgumentError.checkNotNull(locationid, 'locationid');
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    await _dio.request<void>('/checkin/$userid/$locationid',
+        queryParameters: queryParameters,
+        options: RequestOptions(
+            method: 'PUT',
+            headers: <String, dynamic>{},
+            extra: _extra,
+            baseUrl: baseUrl),
+        data: _data);
+    return null;
   }
 }
