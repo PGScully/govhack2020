@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
           title: 'The Winning Project',
           theme: ThemeData.light(),
           darkTheme: ThemeData.dark(),
+          themeMode: ThemeMode.light,
           initialRoute: splashRoute,
           onGenerateRoute: Router.generateRoute,
         ),

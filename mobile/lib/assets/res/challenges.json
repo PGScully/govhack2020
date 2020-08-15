@@ -1,0 +1,38 @@
+{
+    "locations": [
+        {
+            "id": "1",
+            "title": "John Hart Conservatory",
+            "description": "A nice place to view plants in City Park.",
+            "latitude": "-41.432735",
+            "longitude": "147.142738"
+        },
+        {
+            "id": "2",
+            "title": "Prince's Square",
+            "description": "A relaxing park in the city.",
+            "latitude": "-41.440466",
+            "longitude": "147.140419"
+        },
+        {
+            "id": "3",
+            "title": "Royal Park",
+            "description": "A relaxing park in the city.",
+            "latitude": "-41.438829",
+            "longitude": "147.140419"
+        }
+    ],
+    "challenges": [
+        {
+            "title": "Parks in the City",
+            "description": "Visit parks in the city for a relaxing breath of fresh air.",
+            "latitude": "-41.436760",
+            "longitude": "147.139744",
+            "locations": [
+                "1",
+                "2",
+                "3"
+            ]
+        }
+    ]
+}

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:twp/auth/status.dart';
+
 import 'package:twp/auth/user_repository.dart';
-import 'package:twp/repository/challenge.dart';
+import 'package:twp/repository/challenge_location.dart';
 
 /// Repository for all the offers
 ///
@@ -17,9 +19,16 @@ class Repository with ChangeNotifier {
 
   Repository({@required UserRepository userRepository}) {
     _userRepository = userRepository;
+    _loadDataInBackground();
   }
 
-  List<Challenge> challenges(Position position) {
-    return <Challenge>[];
+  List<ChallengeLocation> challenges(Position position) {
+    if (_userRepository.status == Status.authenticated) {
+      return <ChallengeLocation>[];
+    } else {
+      return <ChallengeLocation>[];
+    }
   }
+
+  Future<void> _loadDataInBackground() async {}
 }

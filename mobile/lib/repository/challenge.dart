@@ -1,19 +1,8 @@
-class Challenge {
-  int id;
-  String title;
-  String description;
-  double latitude;
-  double longitude;
-  String imageUrl;
-  String thumbnailUrl;
+import 'package:geolocator/geolocator.dart';
+import 'package:twp/repository/challenge_location.dart';
 
-  Challenge({
-    this.id,
-    this.title,
-    this.description,
-    this.latitude,
-    this.longitude,
-    this.imageUrl = '',
-    this.thumbnailUrl = '',
-  });
+class Challenge {
+  String title;
+  Position position;
+  List<ChallengeLocation> locations;
 }
