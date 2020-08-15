@@ -1,7 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:twp/repository/challenge_location.dart';
-
 part 'challenge.g.dart';
 
 @JsonSerializable()
