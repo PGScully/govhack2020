@@ -65,7 +65,7 @@ class _NearbyScreenState extends State<NearbyScreen> {
           color: Theme.of(context).backgroundColor,
           child: Consumer<Repository>(
             builder: (context, repository, _) {
-              final data = repository.challenges(_position);
+              final data = repository.challengesAt(_position);
               _children = [
                 NearbyMap(challenges: data),
                 NearbyList(challenges: data),
