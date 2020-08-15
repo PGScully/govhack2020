@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:twp/not_implemented_screen.dart';
 import 'package:twp/splash_screen.dart';
+import 'package:twp/ui_auth/login_screen.dart';
 
 const String splashRoute = '/';
 const String loginRoute = 'login';
@@ -17,8 +17,7 @@ class Router {
         return MaterialPageRoute<dynamic>(builder: (_) => SplashScreen());
 
       case loginRoute:
-        return MaterialPageRoute<dynamic>(
-            builder: (_) => NotImplementedScreen());
+        return MaterialPageRoute<dynamic>(builder: (_) => LoginScreen());
 
       case offersRoute:
         return MaterialPageRoute<dynamic>(
