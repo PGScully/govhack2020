@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:twp/auth/status.dart';
+
+import 'package:twp/auth/user_repository.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -66,9 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
         // keyboardType: KeyboardType,
         textInputAction: TextInputAction.next,
         onFieldSubmitted: (_) => FocusScope.of(context).nextFocus(),
-        validator: (value) {
-          return null;
-        },
+        validator: (value) => null,
         onChanged: (value) => _username = value,
       );
 
@@ -81,6 +83,15 @@ class _LoginScreenState extends State<LoginScreen> {
               debugPrint('Login pressed');
               if (_formKey.currentState.validate()) {
                 debugPrint('email = "$_username", password = "$_password"');
+                Provider.of<UserRepository>(context, listen: false)
+                    .login(_username, _password)
+                    .then((_) => {
+                          if (Provider.of<UserRepository>(context,
+                                      listen: false)
+                                  .status ==
+                              Status.authenticated)
+                            {Navigator.of(context).pop()}
+                        });
               }
             },
             child: const Text('Login'),
@@ -98,11 +109,9 @@ class _LoginScreenState extends State<LoginScreen> {
         style: Theme.of(context).textTheme.headline6,
         obscureText: true,
         // keyboardType: KeyboardType,
-        textInputAction: TextInputAction.next,
-        onFieldSubmitted: (_) => FocusScope.of(context).nextFocus(),
-        validator: (value) {
-          return null;
-        },
+        textInputAction: TextInputAction.done,
+        onFieldSubmitted: (_) => FocusScope.of(context).unfocus(),
+        validator: (value) => null,
         onChanged: (value) => _password = value,
       );
 }

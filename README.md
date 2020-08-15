@@ -40,4 +40,4 @@ API calls to list challenges; add progress to a challenge; mark a challenge as c
 
 ## API for web admin
 
-API for the web admin to create, delete and otherwise woek with challenges.
+API for the web admin to create, delete and otherwise work with challenges.

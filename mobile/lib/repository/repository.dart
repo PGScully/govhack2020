@@ -9,6 +9,6 @@ import 'package:flutter/material.dart';
 /// - return all the user's (active) offers
 /// - return all the user's completed offers
 /// - return the user's progress on an offer
-class Repository extends ChangeNotifier {
+class Repository with ChangeNotifier {
   //
 }
