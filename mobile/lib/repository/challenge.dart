@@ -6,11 +6,11 @@ part 'challenge.g.dart';
 
 @JsonSerializable()
 class Challenge {
-  String id;
+  int id;
   String title;
   String latitude;
   String longitude;
-  List<ChallengeLocation> locations;
+  List<int> locations;
 
   Challenge({
     this.id,

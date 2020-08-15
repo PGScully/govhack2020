@@ -8,15 +8,11 @@ part of 'challenge.dart';
 
 Challenge _$ChallengeFromJson(Map<String, dynamic> json) {
   return Challenge(
-    id: json['id'] as String,
+    id: json['id'] as int,
     title: json['title'] as String,
     latitude: json['latitude'] as String,
     longitude: json['longitude'] as String,
-    locations: (json['locations'] as List)
-        ?.map((e) => e == null
-            ? null
-            : ChallengeLocation.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    locations: (json['locations'] as List)?.map((e) => e as int)?.toList(),
   );
 }
 
