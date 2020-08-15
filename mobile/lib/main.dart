@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:twp/auth/user_repository.dart';
+import 'package:twp/repository/repository.dart';
 import 'package:twp/router.dart';
 
 void main() {
@@ -16,6 +17,11 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider<UserRepository>(
             create: (_) => UserRepository(),
           ),
+          ChangeNotifierProxyProvider<UserRepository, Repository>(
+            create: (_) => Repository(userRepository: null),
+            update: (_, userRepository, repository) =>
+                Repository(userRepository: userRepository),
+          )
         ],
         child: MaterialApp(
           title: 'The Winning Project',

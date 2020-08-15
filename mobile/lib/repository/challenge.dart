@@ -1,4 +1,4 @@
-class Offer {
+class Challenge {
   int id;
   String title;
   String description;
@@ -7,7 +7,7 @@ class Offer {
   String imageUrl;
   String thumbnailUrl;
 
-  Offer({
+  Challenge({
     this.id,
     this.title,
     this.description,

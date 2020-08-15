@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:twp/not_implemented_screen.dart';
 import 'package:twp/splash_screen.dart';
 import 'package:twp/ui_auth/login_screen.dart';
+import 'package:twp/ui_nearby/nearby_screen.dart';
 
 const String splashRoute = '/';
 const String loginRoute = 'login';
@@ -24,8 +25,7 @@ class Router {
             builder: (_) => NotImplementedScreen());
 
       case nearbyRoute:
-        return MaterialPageRoute<dynamic>(
-            builder: (_) => NotImplementedScreen());
+        return MaterialPageRoute<dynamic>(builder: (_) => NearbyScreen());
 
       case progressRoute:
         return MaterialPageRoute<dynamic>(

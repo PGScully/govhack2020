@@ -39,8 +39,6 @@ class SplashScreen extends StatelessWidget {
                             label: const Text('Logout'),
                             onPressed: () {
                               userRepository.logout();
-                              Navigator.of(context)
-                                  .pushReplacementNamed(splashRoute);
                             },
                           ),
                         ),
@@ -64,7 +62,6 @@ class SplashScreen extends StatelessWidget {
                   'Explore your local area, complete challenges, and win rewards!',
                   style: Theme.of(context).textTheme.bodyText1,
                 ),
-                // TODO: Determine if logged in, and show login/(other) button
                 if (userRepository.status != Status.authenticated)
                   MaterialButton(
                     padding: const EdgeInsets.all(4),

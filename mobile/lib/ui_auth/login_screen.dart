@@ -20,6 +20,28 @@ class _LoginScreenState extends State<LoginScreen> {
         appBar: AppBar(
           title: const Text('Login'),
           textTheme: Theme.of(context).textTheme,
+          actions: <Widget>[
+            PopupMenuButton<dynamic>(
+              itemBuilder: (context) => [
+                PopupMenuItem<dynamic>(
+                  child: ActionChip(
+                    avatar: const Icon(Icons.info),
+                    label: const Text('About'),
+                    onPressed: () {
+                      showAboutDialog(
+                        context: context,
+                        applicationName: 'The Winning App',
+                        applicationVersion: '0.1.0+1',
+                        // applicationIcon:
+                        //     Image.asset('assets/images/app.png'),
+                        applicationLegalese: 'Copyright The Winning Team.',
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
         body: Container(
           padding: const EdgeInsets.all(16),
