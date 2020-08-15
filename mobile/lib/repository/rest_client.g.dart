@@ -17,6 +17,25 @@ class _RestClient implements RestClient {
   String baseUrl;
 
   @override
+  login(username, password) async {
+    ArgumentError.checkNotNull(username, 'username');
+    ArgumentError.checkNotNull(password, 'password');
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = username;
+    final Response<String> _result = await _dio.request('/login',
+        queryParameters: queryParameters,
+        options: RequestOptions(
+            method: 'GET',
+            headers: <String, dynamic>{},
+            extra: _extra,
+            baseUrl: baseUrl),
+        data: _data);
+    final value = _result.data;
+    return value;
+  }
+
+  @override
   getChallenges() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

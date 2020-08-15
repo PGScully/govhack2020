@@ -10,6 +10,12 @@ part 'rest_client.g.dart';
 abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
+  @GET('/login')
+  Future<String> login(
+    @Body() String username,
+    @Body() String password,
+  );
+
   @GET("/challenges")
   Future<List<Challenge>> getChallenges();
 
