@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
 
@@ -34,12 +33,11 @@ class _NearbyScreenState extends State<NearbyScreen> {
                           onPressed: () {
                             showAboutDialog(
                               context: context,
-                              applicationName: 'The Winning App',
+                              applicationName: 'B-HERE',
                               applicationVersion: '0.1.0+1',
                               // applicationIcon:
                               //     Image.asset('assets/images/app.png'),
-                              applicationLegalese:
-                                  'Copyright The Winning Team.',
+                              applicationLegalese: 'Copyright The B-HERE Team.',
                             );
                           },
                         ),

@@ -37,11 +37,11 @@ class _CheckinScreenState extends State<CheckinScreen> {
                         onPressed: () {
                           showAboutDialog(
                             context: context,
-                            applicationName: 'The Winning App',
+                            applicationName: 'B-HERE',
                             applicationVersion: '0.1.0+1',
                             // applicationIcon:
                             //     Image.asset('assets/images/app.png'),
-                            applicationLegalese: 'Copyright The Winning Team.',
+                            applicationLegalese: 'Copyright The B-HERE Team.',
                           );
                         },
                       ),
@@ -75,7 +75,10 @@ class _CheckinScreenState extends State<CheckinScreen> {
             MaterialButton(
               padding: const EdgeInsets.all(4),
               color: Theme.of(context).buttonColor,
-              onPressed: () {},
+              onPressed: () {
+                Provider.of<Repository>(context)
+                    .checkin(locationId: location.id);
+              },
               child: const Text('Check-in'),
             ),
           ],

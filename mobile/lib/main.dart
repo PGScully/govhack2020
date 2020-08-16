@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
           )
         ],
         child: MaterialApp(
-          title: 'The Winning Project',
+          title: 'B-HERE',
           theme: ThemeData.light(),
           darkTheme: ThemeData.dark(),
           themeMode: ThemeMode.light,

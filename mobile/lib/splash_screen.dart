@@ -21,12 +21,12 @@ class SplashScreen extends StatelessWidget {
                           onPressed: () {
                             showAboutDialog(
                               context: context,
-                              applicationName: 'The Winning App',
+                              applicationName: 'B-HERE',
                               applicationVersion: '0.1.0+1',
                               // applicationIcon:
                               //     Image.asset('assets/images/app.png'),
                               applicationLegalese:
-                                  'Copyright The Winning Team.',
+                                  'Copyright The B-HERE Team.',
                             );
                           },
                         ),

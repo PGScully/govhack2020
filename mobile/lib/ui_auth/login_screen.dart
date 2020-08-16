@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:twp/auth/status.dart';
 
+import 'package:twp/auth/status.dart';
 import 'package:twp/auth/user_repository.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -30,11 +30,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     onPressed: () {
                       showAboutDialog(
                         context: context,
-                        applicationName: 'The Winning App',
+                        applicationName: 'B-HERE',
                         applicationVersion: '0.1.0+1',
                         // applicationIcon:
                         //     Image.asset('assets/images/app.png'),
-                        applicationLegalese: 'Copyright The Winning Team.',
+                        applicationLegalese: 'Copyright The B-HERE Team.',
                       );
                     },
                   ),
