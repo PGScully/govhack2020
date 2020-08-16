@@ -25,7 +25,7 @@ abstract class RestClient {
     @Path("id") String id,
   });
 
-  @GET('/location')
+  @GET('/location?per_page=100')
   Future<List<Location>> getAllLocations();
 
   @GET('/challenge/{id}/locations')
