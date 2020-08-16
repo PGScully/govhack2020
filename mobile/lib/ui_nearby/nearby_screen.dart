@@ -61,7 +61,6 @@ class _NearbyScreenState extends State<NearbyScreen> {
           ],
         ),
         body: Container(
-          padding: const EdgeInsets.all(16),
           color: Theme.of(context).backgroundColor,
           child: Consumer<Repository>(
             builder: (context, repository, _) {
