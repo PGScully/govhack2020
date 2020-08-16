@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:twp/repository/location.dart';
 
 class LocationTile extends StatelessWidget {
-  Location location;
+  final Location location;
 
-  LocationTile({
+  const LocationTile({
     Key key,
     @required this.location,
   }) : super(key: key);
@@ -19,21 +19,25 @@ class LocationTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Title: ${location.title}',
+                'Title: ${location.title?.rendered ?? "title"}',
                 textAlign: TextAlign.center,
               ),
               Text(
-                'Description: ${location.description}',
+                'Description: ${location.content?.rendered ?? "desc"}',
+                textAlign: TextAlign.start,
+              ),
+              Text(
+                'Address: ${location.acf?.address ?? "address"}',
                 textAlign: TextAlign.start,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Expanded(
-                    child: Text('Lat: ${location.latitude}'),
+                    child: Text('Lat: ${location.acf?.latitude}'),
                   ),
                   Expanded(
-                    child: Text('Lon: ${location.longitude}'),
+                    child: Text('Lon: ${location.acf?.longitude}'),
                   ),
                 ],
               ),

@@ -9,10 +9,15 @@ part of 'location.dart';
 Location _$LocationFromJson(Map<String, dynamic> json) {
   return Location(
     id: json['id'] as int,
-    title: json['title'] as String,
-    description: json['description'] as String,
-    latitude: (json['latitude'] as num)?.toDouble(),
-    longitude: (json['longitude'] as num)?.toDouble(),
+    title: json['title'] == null
+        ? null
+        : RenderedString.fromJson(json['title'] as Map<String, dynamic>),
+    content: json['content'] == null
+        ? null
+        : RenderedString.fromJson(json['content'] as Map<String, dynamic>),
+    acf: json['acf'] == null
+        ? null
+        : ACF.fromJson(json['acf'] as Map<String, dynamic>),
     imageUrl: json['imageUrl'] as String,
     thumbnailUrl: json['thumbnailUrl'] as String,
   );
@@ -21,9 +26,8 @@ Location _$LocationFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$LocationToJson(Location instance) => <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
-      'description': instance.description,
-      'latitude': instance.latitude,
-      'longitude': instance.longitude,
+      'content': instance.content,
+      'acf': instance.acf,
       'imageUrl': instance.imageUrl,
       'thumbnailUrl': instance.thumbnailUrl,
     };

@@ -1,23 +1,24 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'package:twp/repository/acf.dart';
+import 'package:twp/repository/rendered_string.dart';
+
 part 'location.g.dart';
 
 @JsonSerializable()
 class Location {
   int id;
-  String title;
-  String description;
-  double latitude;
-  double longitude;
+  RenderedString title;
+  RenderedString content;
+  ACF acf;
   String imageUrl;
   String thumbnailUrl;
 
   Location({
     this.id,
     this.title,
-    this.description,
-    this.latitude,
-    this.longitude,
+    this.content,
+    this.acf,
     this.imageUrl = '',
     this.thumbnailUrl = '',
   });
