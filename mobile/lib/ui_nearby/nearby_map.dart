@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:twp/repository/challenge_location.dart';
+import 'package:twp/repository/location.dart';
 
 class NearbyMap extends StatelessWidget {
-  final List<ChallengeLocation> _challenges = [];
+  final List<Location> _challenges = [];
 
-  NearbyMap({List<ChallengeLocation> challenges}) {
+  NearbyMap({List<Location> challenges}) {
     _challenges.clear();
     if (challenges != null) {
       _challenges.addAll(challenges);

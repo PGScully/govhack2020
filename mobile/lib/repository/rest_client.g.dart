@@ -87,8 +87,7 @@ class _RestClient implements RestClient {
             baseUrl: baseUrl),
         data: _data);
     var value = _result.data
-        .map((dynamic i) =>
-            ChallengeLocation.fromJson(i as Map<String, dynamic>))
+        .map((dynamic i) => Location.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }
@@ -108,8 +107,7 @@ class _RestClient implements RestClient {
             baseUrl: baseUrl),
         data: _data);
     var value = _result.data
-        .map((dynamic i) =>
-            ChallengeLocation.fromJson(i as Map<String, dynamic>))
+        .map((dynamic i) => Location.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }

@@ -68,7 +68,7 @@ class _NearbyScreenState extends State<NearbyScreen> {
               final data = repository.challengesAt(_position);
               _children = [
                 NearbyMap(challenges: data),
-                NearbyList(challenges: data),
+                NearbyList(locations: data),
               ];
               return _children[_currentIndex];
             },
@@ -82,7 +82,7 @@ class _NearbyScreenState extends State<NearbyScreen> {
               title: Text('Map'),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.text_rotation_none),
+              icon: Icon(Icons.list),
               title: Text('List'),
             ),
           ],

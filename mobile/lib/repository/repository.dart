@@ -5,7 +5,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:twp/auth/status.dart';
 import 'package:twp/auth/user_repository.dart';
 import 'package:twp/repository/challenge.dart';
-import 'package:twp/repository/challenge_location.dart';
+import 'package:twp/repository/location.dart';
 import 'package:twp/repository/rest_client.dart';
 
 /// Repository for all the offers
@@ -21,7 +21,7 @@ class Repository with ChangeNotifier {
   UserRepository _userRepository;
   RestClient restClient;
   final List<Challenge> _challenges = [];
-  final List<ChallengeLocation> _locations = [];
+  final List<Location> _locations = [];
 
   Repository({@required UserRepository userRepository}) {
     final dio = Dio(); // Provide a dio instance
@@ -29,16 +29,17 @@ class Repository with ChangeNotifier {
 
     _userRepository = userRepository;
     _loadDataInBackground();
+    notifyListeners();
   }
 
   List<Challenge> get challenges => _challenges;
-  List<ChallengeLocation> get locations => _locations;
+  List<Location> get locations => _locations;
 
-  List<ChallengeLocation> challengesAt(Position position) {
+  List<Location> challengesAt(Position position) {
     if (_userRepository.status == Status.authenticated) {
-      return <ChallengeLocation>[];
+      return <Location>[];
     } else {
-      return <ChallengeLocation>[];
+      return <Location>[];
     }
   }
 
@@ -49,5 +50,6 @@ class Repository with ChangeNotifier {
         .then((challenges) => _challenges.addAll(challenges));
     _locations.clear();
     restClient.getLocations().then((locations) => _locations.addAll(locations));
+    notifyListeners();
   }
 }

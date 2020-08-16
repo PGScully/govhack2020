@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
 import 'package:twp/repository/challenge.dart';
-import 'package:twp/repository/challenge_location.dart';
+import 'package:twp/repository/location.dart';
 
 part 'rest_client.g.dart';
 
@@ -25,10 +25,10 @@ abstract class RestClient {
   );
 
   @GET('/locations')
-  Future<List<ChallengeLocation>> getLocations();
+  Future<List<Location>> getLocations();
 
   @GET('/locations/{id}')
-  Future<List<ChallengeLocation>> getLocationsForChallenge(
+  Future<List<Location>> getLocationsForChallenge(
     @Path("id") String id,
   );
 
