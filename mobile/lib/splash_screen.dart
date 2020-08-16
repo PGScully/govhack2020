@@ -9,7 +9,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text('Welcome'),
+          title: const Text('B-HERE'),
           textTheme: Theme.of(context).textTheme,
           actions: <Widget>[
             PopupMenuButton<dynamic>(
@@ -25,8 +25,7 @@ class SplashScreen extends StatelessWidget {
                               applicationVersion: '0.1.0+1',
                               // applicationIcon:
                               //     Image.asset('assets/images/app.png'),
-                              applicationLegalese:
-                                  'Copyright The B-HERE Team.',
+                              applicationLegalese: 'Copyright The B-HERE Team.',
                             );
                           },
                         ),
@@ -54,7 +53,7 @@ class SplashScreen extends StatelessWidget {
               children: [
                 Center(
                   child: Text(
-                    'Welcome',
+                    'B-HERE',
                     style: Theme.of(context).textTheme.headline2,
                   ),
                 ),
