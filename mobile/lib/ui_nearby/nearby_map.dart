@@ -4,12 +4,13 @@ import 'package:provider/provider.dart';
 
 import 'package:twp/repository/location.dart';
 import 'package:twp/repository/repository.dart';
+import 'package:twp/router.dart';
 
 class NearbyMap extends StatelessWidget {
   final List<Location> _challenges = [];
 
-  final LatLng _initialView = const LatLng(-27.989, 143.173);
-  final double _initialZoom = 2.0;
+  final LatLng _initialView = const LatLng(-26.787100, 134.469324);
+  final double _initialZoom = 3.5;
 
   GoogleMapController mapController;
 
@@ -33,18 +34,26 @@ class NearbyMap extends StatelessWidget {
               target: _initialView,
               zoom: _initialZoom,
             ),
-            markers: _makeMarkers(repository.locations),
+            markers: _makeMarkers(repository.locations, context),
           );
         },
       );
 
-  Set<Marker> _makeMarkers(List<Location> locations) {
+  Set<Marker> _makeMarkers(List<Location> locations, BuildContext context) {
     return locations
         .map(
           (l) => Marker(
             markerId: MarkerId(
               l.id.toString(),
             ),
+            infoWindow: InfoWindow(
+                title: l.title.rendered,
+                // snippet: l.content.rendered,
+                onTap: () {
+                  debugPrint('onTap: id=${l.id}');
+                  Navigator.of(context)
+                      .pushNamed(checkinRoute, arguments: l.id);
+                }),
             position: LatLng(
               double.parse(l.acf.latitude),
               double.parse(l.acf.longitude),

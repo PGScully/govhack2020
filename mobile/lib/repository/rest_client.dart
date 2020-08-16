@@ -12,30 +12,30 @@ abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
   @GET('/login')
-  Future<String> login(
+  Future<String> login({
     @Body() String username,
     @Body() String password,
-  );
+  });
 
   @GET("/challenge")
   Future<List<Challenge>> getAllChallenges();
 
   @GET('/challenge/{id}')
-  Future<Challenge> getChallenge(
+  Future<Challenge> getChallenge({
     @Path("id") String id,
-  );
+  });
 
   @GET('/location')
   Future<List<Location>> getAllLocations();
 
   @GET('/challenge/{id}/locations')
-  Future<List<Location>> getLocationsForChallenge(
+  Future<List<Location>> getLocationsForChallenge({
     @Path("id") String id,
-  );
+  });
 
   @PUT('/checkin/{userid}/{locationid}')
-  Future<void> checkin(
+  Future<void> checkin({
     @Path("userid") int userid,
     @Path("locationid") int locationid,
-  );
+  });
 }

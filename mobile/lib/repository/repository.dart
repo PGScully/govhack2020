@@ -43,15 +43,20 @@ class Repository with ChangeNotifier {
     }
   }
 
+  void checkin({int locationId}) {
+    final userId = int.parse(_userRepository.userId);
+    restClient.checkin(userid: userId, locationid: locationId);
+  }
+
   Future<void> _loadDataInBackground() async {
     // _challenges.clear();
     // restClient
     //     .getAllChallenges()
     //     .then((challenges) => _challenges.addAll(challenges));
     _locations.clear();
-    restClient
-        .getAllLocations()
-        .then((locations) => _locations.addAll(locations));
-    notifyListeners();
+    restClient.getAllLocations().then((locations) {
+      _locations.addAll(locations);
+      notifyListeners();
+    });
   }
 }

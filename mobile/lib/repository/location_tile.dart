@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 import 'package:twp/repository/location.dart';
+import 'package:twp/router.dart';
 
 class LocationTile extends StatelessWidget {
   final Location location;
@@ -11,37 +13,42 @@ class LocationTile extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Card(
-        child: Padding(
-          padding: const EdgeInsets.all(8),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Title: ${location.title?.rendered ?? "title"}',
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                'Description: ${location.content?.rendered ?? "desc"}',
-                textAlign: TextAlign.start,
-              ),
-              Text(
-                'Address: ${location.acf?.address ?? "address"}',
-                textAlign: TextAlign.start,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Expanded(
-                    child: Text('Lat: ${location.acf?.latitude}'),
-                  ),
-                  Expanded(
-                    child: Text('Lon: ${location.acf?.longitude}'),
-                  ),
-                ],
-              ),
-            ],
+  Widget build(BuildContext context) => GestureDetector(
+        onTap: () {
+          debugPrint('onTap: id=${location.id}');
+          Navigator.of(context).pushNamed(checkinRoute, arguments: location.id);
+        },
+        child: Card(
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  location.title?.rendered ?? "",
+                  style: Theme.of(context).textTheme.headline5,
+                  textAlign: TextAlign.center,
+                ),
+                Html(
+                  data: location.content?.rendered ?? "",
+                ),
+                Text(
+                  'Address: ${location.acf?.address ?? ""}',
+                  textAlign: TextAlign.start,
+                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                //   children: [
+                //     Expanded(
+                //       child: Text('Lat: ${location.acf?.latitude}'),
+                //     ),
+                //     Expanded(
+                //       child: Text('Lon: ${location.acf?.longitude}'),
+                //     ),
+                //   ],
+                // ),
+              ],
+            ),
           ),
         ),
       );

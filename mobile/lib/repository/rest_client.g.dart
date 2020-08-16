@@ -18,11 +18,10 @@ class _RestClient implements RestClient {
   String baseUrl;
 
   @override
-  login(username, password) async {
-    ArgumentError.checkNotNull(username, 'username');
-    ArgumentError.checkNotNull(password, 'password');
+  login({username, password}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _data = username;
     final Response<String> _result = await _dio.request('/login',
         queryParameters: queryParameters,
@@ -56,10 +55,10 @@ class _RestClient implements RestClient {
   }
 
   @override
-  getChallenge(id) async {
-    ArgumentError.checkNotNull(id, 'id');
+  getChallenge({id}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     final Response<Map<String, dynamic>> _result = await _dio.request(
         '/challenge/$id',
@@ -94,10 +93,10 @@ class _RestClient implements RestClient {
   }
 
   @override
-  getLocationsForChallenge(id) async {
-    ArgumentError.checkNotNull(id, 'id');
+  getLocationsForChallenge({id}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     final Response<List<dynamic>> _result = await _dio.request(
         '/challenge/$id/locations',
@@ -115,11 +114,10 @@ class _RestClient implements RestClient {
   }
 
   @override
-  checkin(userid, locationid) async {
-    ArgumentError.checkNotNull(userid, 'userid');
-    ArgumentError.checkNotNull(locationid, 'locationid');
+  checkin({userid, locationid}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     await _dio.request<void>('/checkin/$userid/$locationid',
         queryParameters: queryParameters,
