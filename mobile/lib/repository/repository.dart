@@ -44,12 +44,14 @@ class Repository with ChangeNotifier {
   }
 
   Future<void> _loadDataInBackground() async {
-    _challenges.clear();
-    restClient
-        .getChallenges()
-        .then((challenges) => _challenges.addAll(challenges));
+    // _challenges.clear();
+    // restClient
+    //     .getAllChallenges()
+    //     .then((challenges) => _challenges.addAll(challenges));
     _locations.clear();
-    restClient.getLocations().then((locations) => _locations.addAll(locations));
+    restClient
+        .getAllLocations()
+        .then((locations) => _locations.addAll(locations));
     notifyListeners();
   }
 }

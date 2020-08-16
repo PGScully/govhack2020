@@ -6,7 +6,8 @@ import 'package:twp/repository/location.dart';
 
 part 'rest_client.g.dart';
 
-@RestApi(baseUrl: 'https://govhack.topdogcommerce.com/')
+@RestApi(
+    baseUrl: 'https://locations.topdogcommerce.com/index.php/wp-json/wp/v2')
 abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
@@ -17,7 +18,7 @@ abstract class RestClient {
   );
 
   @GET("/challenges")
-  Future<List<Challenge>> getChallenges();
+  Future<List<Challenge>> getAllChallenges();
 
   @GET('/challenges/{id}')
   Future<Challenge> getChallenge(
@@ -25,7 +26,7 @@ abstract class RestClient {
   );
 
   @GET('/locations')
-  Future<List<Location>> getLocations();
+  Future<List<Location>> getAllLocations();
 
   @GET('/locations/{id}')
   Future<List<Location>> getLocationsForChallenge(

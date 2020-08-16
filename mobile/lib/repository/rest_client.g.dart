@@ -9,7 +9,8 @@ part of 'rest_client.dart';
 class _RestClient implements RestClient {
   _RestClient(this._dio, {this.baseUrl}) {
     ArgumentError.checkNotNull(_dio, '_dio');
-    this.baseUrl ??= 'https://govhack.topdogcommerce.com/';
+    this.baseUrl ??=
+        'https://locations.topdogcommerce.com/index.php/wp-json/wp/v2';
   }
 
   final Dio _dio;
@@ -36,7 +37,7 @@ class _RestClient implements RestClient {
   }
 
   @override
-  getChallenges() async {
+  getAllChallenges() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
@@ -74,7 +75,7 @@ class _RestClient implements RestClient {
   }
 
   @override
-  getLocations() async {
+  getAllLocations() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
