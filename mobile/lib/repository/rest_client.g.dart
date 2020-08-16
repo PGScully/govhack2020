@@ -99,7 +99,8 @@ class _RestClient implements RestClient {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final Response<List<dynamic>> _result = await _dio.request('/location/$id',
+    final Response<List<dynamic>> _result = await _dio.request(
+        '/challenge/$id/locations',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',
