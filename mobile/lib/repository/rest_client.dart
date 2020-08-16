@@ -17,18 +17,18 @@ abstract class RestClient {
     @Body() String password,
   );
 
-  @GET("/challenges")
+  @GET("/challenge")
   Future<List<Challenge>> getAllChallenges();
 
-  @GET('/challenges/{id}')
+  @GET('/challenge/{id}')
   Future<Challenge> getChallenge(
     @Path("id") String id,
   );
 
-  @GET('/locations')
+  @GET('/location')
   Future<List<Location>> getAllLocations();
 
-  @GET('/locations/{id}')
+  @GET('/location/{id}')
   Future<List<Location>> getLocationsForChallenge(
     @Path("id") String id,
   );

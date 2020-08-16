@@ -41,7 +41,7 @@ class _RestClient implements RestClient {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final Response<List<dynamic>> _result = await _dio.request('/challenges',
+    final Response<List<dynamic>> _result = await _dio.request('/challenge',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',
@@ -62,7 +62,7 @@ class _RestClient implements RestClient {
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final Response<Map<String, dynamic>> _result = await _dio.request(
-        '/challenges/$id',
+        '/challenge/$id',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',
@@ -79,7 +79,7 @@ class _RestClient implements RestClient {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final Response<List<dynamic>> _result = await _dio.request('/locations',
+    final Response<List<dynamic>> _result = await _dio.request('/location',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',
@@ -99,7 +99,7 @@ class _RestClient implements RestClient {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final Response<List<dynamic>> _result = await _dio.request('/locations/$id',
+    final Response<List<dynamic>> _result = await _dio.request('/location/$id',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',
